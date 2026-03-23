@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACS Elegance — Ad Banners</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #F2EDE6;
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.page-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #9A8A78;
+  align-self: flex-start;
+  padding-left: 4px;
+}
+
+.banner-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* ─── SHARED BANNER BASE ─── */
+.banner {
+  width: 380px;
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.banner * { font-family: 'Outfit', sans-serif; }
+
+/* ══════════════════════════════
+   BANNER 1 — LIFESTYLE / DREAM HOME
+══════════════════════════════ */
+.b1 {
+  background: #1C1008;
+}
+
+/* Warm gradient sky atmosphere */
+.b1-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 70% 90%, #C97A2F 0%, #8B4A10 30%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 20% 60%, #3D200A 0%, transparent 60%),
+    linear-gradient(180deg, #0D0805 0%, #1C1008 40%, #2A1508 100%);
+}
+
+/* Animated light shimmer */
+.b1-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,200,100,0.06) 50%, transparent 60%);
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* Abstract room silhouette */
+.b1-room {
+  position: absolute;
+  bottom: 0;
+  right: -20px;
+  width: 260px;
+  height: 220px;
+  opacity: 0.18;
+}
+
+.b1-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 24px;
+}
+
+.b1-eyebrow {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #E8A055;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.b1-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #E8A055;
+}
+
+.b1-title {
+  font-family: 'Fraunces', serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.0;
+  color: #FFF8F0;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.b1-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: #E8A055;
+}
+
+.b1-location {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,248,240,0.45);
+  margin-bottom: auto;
+}
+
+/* Interior window graphic */
+.b1-window-scene {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 130px;
+  height: 160px;
+}
+
+.b1-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.b1-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.b1-price-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(255,248,240,0.5);
+}
+
+.b1-price {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #F5C842;
+  line-height: 1;
+}
+
+.b1-subtext {
+  font-size: 10px;
+  color: rgba(255,248,240,0.4);
+  letter-spacing: 1px;
+}
+
+.b1-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.b1-tag {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(232,160,85,0.7);
+  border: 1px solid rgba(232,160,85,0.25);
+  padding: 4px 10px;
+}
+
+.b1-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #C97A2F;
+  color: #FFF8F0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.b1-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  transition: left 0.4s;
+}
+
+.b1-btn:hover::after { left: 100%; }
+.b1-btn:hover { background: #D98A3F; transform: translateY(-1px); }
+
+.b1-logo {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.b1-logo-name {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,248,240,0.9);
+  letter-spacing: 1px;
+}
+
+.b1-logo-sub {
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(232,160,85,0.6);
+}
+
+/* Diagonal accent line */
+.b1-diag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════
+   BANNER 2 — BUDGET / PRODUCT
+══════════════════════════════ */
+.b2 {
+  background: #0B1F3A;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.b2-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 110%, rgba(201, 140, 40, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,80,140,0.4) 0%, transparent 60%),
+    linear-gradient(170deg, #0B1F3A 0%, #0E2847 60%, #112035 100%);
+}
+
+/* Building silhouette graphic (CSS drawn) */
+.b2-building {
+  position: absolute;
+  bottom: 90px;
+  right: -10px;
+  width: 200px;
+  height: 220px;
+  opacity: 0.25;
+}
+
+.b2-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 26px 22px;
+}
+
+.b2-top-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.b2-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.b2-brand-name {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFF;
+  letter-spacing: 1px;
+}
+
+.b2-brand-sub {
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(245,200,66,0.6);
+}
+
+.b2-triangle {
+  width: 28px; height: 28px;
+  background: #F5C842;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.b2-headline {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(200,220,255,0.7);
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.b2-project-name {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #FFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.b2-project-name span {
+  color: #F5C842;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.b2-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: auto;
+}
+
+.b2-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(220,235,255,0.85);
+}
+
+.b2-check-icon {
+  width: 20px;
+  height: 20px;
+  background: rgba(245,200,66,0.15);
+  border: 1px solid rgba(245,200,66,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.b2-check-icon svg { color: #F5C842; }
+
+.b2-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.b2-cta-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(200,220,255,0.55);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.b2-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #F5C842;
+  color: #0B1F3A;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.b2-btn:hover {
+  background: #FFD966;
+  box-shadow: 0 8px 24px rgba(245,200,66,0.35);
+}
+
+.b2-btn-arrow {
+  font-size: 16px;
+  transition: transform 0.3s;
+}
+.b2-btn:hover .b2-btn-arrow { transform: translateX(4px); }
+
+/* ══════════════════════════════
+   BANNER 3 — INVESTMENT / ROI
+══════════════════════════════ */
+.b3 {
+  background: #F7F3EC;
+}
+
+.b3-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 220px;
+  background: linear-gradient(160deg, #1A3A6A 0%, #0D2040 50%, #1A3050 100%);
+  overflow: hidden;
+}
+
+/* Aerial city grid pattern */
+.b3-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.b3-city-glow {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 120px;
+  background: radial-gradient(ellipse, rgba(245,200,66,0.3) 0%, transparent 70%);
+}
+
+/* Mini building skyline SVG */
+.b3-skyline {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  height: 90px;
+}
+
+.b3-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.b3-header {
+  padding: 20px 22px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.b3-logo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.b3-logo-name {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFF;
+  letter-spacing: 1px;
+}
+
+.b3-logo-sub {
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(245,200,66,0.7);
+}
+
+.b3-invest-badge {
+  background: rgba(245,200,66,0.15);
+  border: 1px solid rgba(245,200,66,0.4);
+  padding: 5px 10px;
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #F5C842;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.b3-body {
+  padding: 0 22px 22px;
+  margin-top: auto;
+  background: #F7F3EC;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 140px;
+}
+
+.b3-smart-tag {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C97A2F;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.b3-smart-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #C97A2F, transparent);
+}
+
+.b3-title {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #0D1F3A;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.b3-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: #1A5AA0;
+}
+
+.b3-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.b3-pill {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1A4A80;
+  background: rgba(26,74,128,0.08);
+  border: 1px solid rgba(26,74,128,0.15);
+  padding: 5px 10px;
+}
+
+.b3-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0D1F3A;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.b3-btn::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: #1A5AA0;
+  transition: width 0.4s;
+  z-index: 0;
+}
+
+.b3-btn:hover::before { width: 100%; }
+.b3-btn span { position: relative; z-index: 1; }
+.b3-btn-arrow { position: relative; z-index: 1; transition: transform 0.3s; }
+.b3-btn:hover .b3-btn-arrow { transform: translateX(4px); }
+
+/* ── PAGE FOOTER ── */
+.page-footer {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C4B8A8;
+  padding-bottom: 20px;
+}
+
+/* Hover lift for all banners */
+.banner {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+.banner:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.22);
+}
+</style>
+</head>
+<body>
+
+<div class="page-label">ACS Elegance · Kundrathur · Ad Campaign 2026</div>
+
+<div class="banner-row">
+
+  <!-- ═══ BANNER 1: LIFESTYLE ═══ -->
+  <div class="banner b1">
+    <div class="b1-bg"></div>
+    <div class="b1-shimmer"></div>
+
+    <!-- Diagonal SVG accent -->
+    <svg class="b1-diag" viewBox="0 0 380 420" xmlns="http://www.w3.org/2000/svg">
+      <line x1="380" y1="0" x2="0" y2="420" stroke="rgba(232,160,85,0.06)" stroke-width="60"/>
+      <line x1="380" y1="80" x2="100" y2="420" stroke="rgba(232,160,85,0.04)" stroke-width="30"/>
+      <!-- Window frame -->
+      <rect x="210" y="100" width="140" height="175" rx="2" fill="none" stroke="rgba(232,160,85,0.12)" stroke-width="1"/>
+      <line x1="280" y1="100" x2="280" y2="275" stroke="rgba(232,160,85,0.08)" stroke-width="1"/>
+      <line x1="210" y1="187" x2="350" y2="187" stroke="rgba(232,160,85,0.08)" stroke-width="1"/>
+      <!-- Window glow -->
+      <rect x="212" y="102" width="67" height="83" rx="1" fill="rgba(255,200,100,0.07)"/>
+      <rect x="281" y="102" width="67" height="83" rx="1" fill="rgba(255,200,100,0.04)"/>
+      <rect x="212" y="189" width="67" height="83" rx="1" fill="rgba(255,200,100,0.05)"/>
+      <rect x="281" y="189" width="67" height="83" rx="1" fill="rgba(255,200,100,0.08)"/>
+    </svg>
+
+    <div class="b1-logo">
+      <span class="b1-logo-name">Elegance</span>
+      <span class="b1-logo-sub">Kundrathur</span>
+    </div>
+
+    <div class="b1-content">
+      <div class="b1-eyebrow">Own Your Dream Home</div>
+
+      <h2 class="b1-title">
+        2 BHK<br>
+        <em>Homes</em>
+      </h2>
+      <div class="b1-location">Kundrathur · Chennai</div>
+
+      <div class="b1-bottom">
+        <div class="b1-tags">
+          <div class="b1-tag">Peaceful Living</div>
+          <div class="b1-tag">Great Connectivity</div>
+        </div>
+        <div class="b1-price-row">
+          <span class="b1-price-label">@</span>
+          <span class="b1-price">₹79 Lakhs</span>
+          <span class="b1-subtext">Onwards*</span>
+        </div>
+        <button class="b1-btn">
+          Enquire Now
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ BANNER 2: BUDGET / PRODUCT ═══ -->
+  <div class="banner b2">
+    <div class="b2-bg"></div>
+
+    <!-- Building silhouette -->
+    <svg class="b2-building" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="20" width="160" height="200" fill="white"/>
+      <rect x="20" y="20" width="160" height="200" fill="url(#b2g)"/>
+      <!-- floors -->
+      <line x1="20" y1="70" x2="180" y2="70" stroke="black" stroke-width="1" opacity="0.3"/>
+      <line x1="20" y1="120" x2="180" y2="120" stroke="black" stroke-width="1" opacity="0.3"/>
+      <line x1="20" y1="170" x2="180" y2="170" stroke="black" stroke-width="1" opacity="0.3"/>
+      <!-- windows -->
+      <rect x="35" y="35" width="25" height="20" rx="1" fill="rgba(245,200,66,0.8)"/>
+      <rect x="88" y="35" width="25" height="20" rx="1" fill="rgba(245,200,66,0.5)"/>
+      <rect x="140" y="35" width="25" height="20" rx="1" fill="rgba(245,200,66,0.7)"/>
+      <rect x="35" y="85" width="25" height="20" rx="1" fill="rgba(245,200,66,0.4)"/>
+      <rect x="88" y="85" width="25" height="20" rx="1" fill="rgba(245,200,66,0.7)"/>
+      <rect x="140" y="85" width="25" height="20" rx="1" fill="rgba(245,200,66,0.5)"/>
+      <rect x="35" y="135" width="25" height="20" rx="1" fill="rgba(245,200,66,0.6)"/>
+      <rect x="88" y="135" width="25" height="20" rx="1" fill="rgba(245,200,66,0.4)"/>
+      <rect x="140" y="135" width="25" height="20" rx="1" fill="rgba(245,200,66,0.65)"/>
+      <defs>
+        <linearGradient id="b2g" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="rgba(0,0,0,0.4)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0.1)"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <div class="b2-content">
+      <div class="b2-top-badge">
+        <div class="b2-brand">
+          <span class="b2-brand-name">Elegance</span>
+          <span class="b2-brand-sub">Kundrathur</span>
+        </div>
+        <div class="b2-triangle"></div>
+      </div>
+
+      <p class="b2-headline">Looking for a<br>Budget-Friendly 2 BHK?</p>
+
+      <div class="b2-project-name">
+        Elegance,<br><span>Kundrathur</span>
+      </div>
+
+      <div class="b2-checklist">
+        <div class="b2-check">
+          <div class="b2-check-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          Starting ₹79 Lakhs*
+        </div>
+        <div class="b2-check">
+          <div class="b2-check-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          Prime Location
+        </div>
+        <div class="b2-check">
+          <div class="b2-check-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          Easy Loan Assistance
+        </div>
+      </div>
+
+      <div class="b2-bottom">
+        <div class="b2-cta-label">Book Your Dream Home Today!</div>
+        <button class="b2-btn">
+          Get Offer <span class="b2-btn-arrow">▶</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ BANNER 3: INVESTMENT ═══ -->
+  <div class="banner b3">
+    <!-- Dark top section -->
+    <div class="b3-top">
+      <div class="b3-grid"></div>
+      <div class="b3-city-glow"></div>
+
+      <!-- Skyline SVG -->
+      <svg class="b3-skyline" viewBox="0 0 380 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- Buildings -->
+        <rect x="10" y="40" width="30" height="50" fill="rgba(255,255,255,0.08)"/>
+        <rect x="15" y="30" width="20" height="60" fill="rgba(255,255,255,0.06)"/>
+        <rect x="50" y="20" width="40" height="70" fill="rgba(255,255,255,0.1)"/>
+        <rect x="55" y="10" width="30" height="80" fill="rgba(255,255,255,0.07)"/>
+        <rect x="100" y="35" width="25" height="55" fill="rgba(255,255,255,0.09)"/>
+        <rect x="135" y="15" width="50" height="75" fill="rgba(255,255,255,0.11)"/>
+        <rect x="145" y="5" width="30" height="85" fill="rgba(255,255,255,0.07)"/>
+        <rect x="195" y="30" width="35" height="60" fill="rgba(255,255,255,0.09)"/>
+        <rect x="240" y="10" width="45" height="80" fill="rgba(255,255,255,0.1)"/>
+        <rect x="255" y="0" width="20" height="90" fill="rgba(255,255,255,0.06)"/>
+        <rect x="295" y="25" width="30" height="65" fill="rgba(255,255,255,0.09)"/>
+        <rect x="335" y="35" width="40" height="55" fill="rgba(255,255,255,0.07)"/>
+        <!-- Window lights -->
+        <rect x="57" y="20" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.5)"/>
+        <rect x="67" y="20" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.3)"/>
+        <rect x="57" y="30" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.4)"/>
+        <rect x="148" y="15" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.5)"/>
+        <rect x="158" y="15" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.3)"/>
+        <rect x="148" y="25" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.4)"/>
+        <rect x="258" y="8" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.5)"/>
+        <rect x="258" y="18" width="6" height="5" rx="0.5" fill="rgba(245,200,66,0.3)"/>
+        <!-- Road -->
+        <rect x="0" y="82" width="380" height="8" fill="rgba(245,200,66,0.15)"/>
+        <line x1="0" y1="86" x2="380" y2="86" stroke="rgba(245,200,66,0.3)" stroke-width="0.5" stroke-dasharray="20 10"/>
+      </svg>
+
+      <div class="b3-header">
+        <div class="b3-logo-area">
+          <span class="b3-logo-name">Elegance</span>
+          <span class="b3-logo-sub">Kundrathur</span>
+        </div>
+        <div class="b3-invest-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          Smart Investment
+        </div>
+      </div>
+    </div>
+
+    <div class="b3-content">
+      <div class="b3-body">
+        <div class="b3-smart-tag">Smart Investment · Kundrathur</div>
+
+        <h2 class="b3-title">
+          Invest in<br>
+          Kundrathur<br>
+          <em>Real Estate</em>
+        </h2>
+
+        <div class="b3-pills">
+          <div class="b3-pill">High Growth Area</div>
+          <div class="b3-pill">Affordable Pricing</div>
+          <div class="b3-pill">Great Returns*</div>
+        </div>
+
+        <button class="b3-btn">
+          <span>Learn More</span>
+          <span class="b3-btn-arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">acspromoters.com · 70666 70666</div>
+
+</body>
+</html>
